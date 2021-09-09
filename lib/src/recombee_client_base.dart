@@ -8,7 +8,7 @@ import 'package:recombee_client/src/exceptions/recombee_response_exception.dart'
 import 'requests/recombee_request.dart';
 
 class RecombeeClient {
-  late String databaseId;
+  late String _databaseId;
   late String _publicToken;
   late String _baseUri;
   late bool _useHttps;
@@ -23,7 +23,7 @@ class RecombeeClient {
     required String publicToken,
     bool useHttps = false,
   }) {
-    databaseId = databaseId;
+    _databaseId = databaseId;
     _publicToken = publicToken;
     _useHttps = useHttps;
 
@@ -75,7 +75,7 @@ class RecombeeClient {
   }
 
   String signUrl(req_part) {
-    var url = '/' + databaseId + req_part;
+    var url = '/' + _databaseId + req_part;
 
     url += (!url.contains('?') ? '?' : '&') +
         'frontend_timestamp=' +
