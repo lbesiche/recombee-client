@@ -3,15 +3,14 @@ import 'package:recombee_client/recombee_client.dart';
 import 'recombee_request.dart';
 
 class RecommendItemsToUsers extends RecombeeRequest {
-  dynamic userId;
-  dynamic itemId;
+  String databaseId;
+  String userId;
   num count;
   RecommendItemsToUsersOptions? recommendItemsToUsersOptions;
 
   RecommendItemsToUsers({
-    databaseId,
+    required this.databaseId,
     required this.userId,
-    required this.itemId,
     required this.count,
     this.recommendItemsToUsersOptions,
     int timeout = 3000,
@@ -24,7 +23,6 @@ class RecommendItemsToUsers extends RecombeeRequest {
   Map<String, dynamic> requestBody() {
     return {
       'userId': userId,
-      'itemId': itemId,
     };
   }
 }
