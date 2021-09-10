@@ -31,8 +31,6 @@ class RecombeeClient {
   }
 
   Future<String> send(RecombeeRequest request) async {
-    print('_DATABASE ID $_databaseId');
-    print('request.path) ${request.path}');
     try {
       final signedUrl = signUrl(request.path);
       final url = ((_useHttps) ? 'https://' : 'http://') + _baseUri + signedUrl;
