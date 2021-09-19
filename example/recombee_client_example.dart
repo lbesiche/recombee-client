@@ -8,7 +8,7 @@ void main() async {
   );
 
   try {
-    final request1 = AddDetailView(userId: 10, itemId: 1);
+    final request1 = AddDetailView(userId: 'userId', itemId: 'itemId');
     print(await client.send(request1));
 
     final request2 = AddCartAddition(userId: 10, itemId: 1);

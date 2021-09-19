@@ -1,12 +1,14 @@
 import 'recombee_request.dart';
 
 class AddDetailView extends RecombeeRequest {
-  dynamic userId;
-  dynamic itemId;
+  String userId;
+  String itemId;
+  String? recommId;
 
   AddDetailView({
     required this.userId,
     required this.itemId,
+    this.recommId,
     int timeout = 3000,
   }) : super('POST', '/detailviews/', timeout);
 
@@ -15,6 +17,7 @@ class AddDetailView extends RecombeeRequest {
     return {
       'userId': userId,
       'itemId': itemId,
+      'recommId': recommId,
     };
   }
 }
